@@ -8,9 +8,67 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
   </head>
 
   <body>
+    <header class="header">
+      <div class="header__bar row">
+        <h1 class="grid-6"><a href="/posts">ABURI</a></h1>
+
+        <div class="header__search">
+          <%= search_form_for @q, url: search_posts_path do |f| %>
+            <%= f.search_field :room_address_cont, placeholder: "エリア" %>
+            <%= f.submit '検索' %>
+          <% end %>
+
+          <%= search_form_for @q, url: search_posts_path do |f| %>
+            <%= f.search_field :room_name_or_room_introduction_or_room_address_cont, placeholder: "キーワード" %>
+            <%= f.submit '検索' %>
+          <% end %>
+        </div>
+
+        <% if user_signed_in? %>
+        <%# ユーザーがログインしている場合に実行する処理 %>
+          <div class="user_nav grid-6">
+
+            <li class="dropdown">
+              <%= current_user.name %>
+              <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">メニュー</a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "ルーム登録", :new_post %></li>
+                <li><%= link_to "予約済みルーム一覧", "/posts/:post_id/reservations" %></li>
+                <li><%= link_to "登録済みルーム一覧", "/posts/#{current_user.id}" %></li>
+                <li><%= link_to "設定", "/users/show" %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+
+        <% else %>
+        <%# ユーザーがログアウトしている場合に実行する処理 %>
+          <div class="login">
+            <%= button_to "ログイン", new_user_session_path, class: 'login-button' %>
+            <%= button_to "新規登録", new_user_registration_path, method: :get, class: 'new-button' %>
+          </div>
+
+        <% end %>
+      </div>
+    </header>
+
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+
     <%= yield %>
+
+    <footer>
+      <h6>© 2021 ABURI.INC.</h6>
+    </footer>
   </body>
 </html>

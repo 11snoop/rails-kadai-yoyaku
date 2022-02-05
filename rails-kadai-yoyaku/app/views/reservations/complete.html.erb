@@ -1,0 +1,19 @@
+<h1>ご予約ありがとうございました。</h1>
+
+<dl>
+  <dt>予約した部屋</dt>
+	<dd><%= @post.room_name %></dd>
+	<dt>開始日</dt>
+	<dd><%= @reservation.start_date.to_s(:ja) %></dd>
+	<dt>終了日</dt>
+	<dd><%= @reservation.end_date.to_s(:ja) %></dd>
+  <dt>使用日数</dt>
+	<dd>
+    <% past_seconds = @reservation.end_date-@reservation.start_date %>
+    <%= past_days = (past_seconds / 1.days).floor %>日
+  </dd>
+	<dt>人数</dt>
+	<dd><%= @reservation.number_of_reservations %>人</dd>
+  <dt>合計金額</dt>
+	<dd><%= @post.room_price*past_days*@reservation.number_of_reservations %>円</dd>
+</dl>

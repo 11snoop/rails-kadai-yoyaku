@@ -1,0 +1,28 @@
+<div class="room-list">
+
+  <h3>登録済みルーム一覧</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @post.each do |post| %>
+        <tr>
+          <td><%= link_to image_tag(post.room_image.url, :size =>'250x150'), post_reservation_path(@post, post.id), method: :get %></td>
+          <td><%= link_to post.room_name, post_reservation_path(@post, post.id), method: :get %></td>
+          <td><%= post.room_introduction %></td>
+          <td>¥ <%= post.room_price %></td>
+          <td><%= post.created_at.to_s(:datetime_jp) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

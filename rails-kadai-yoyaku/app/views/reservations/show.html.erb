@@ -1,0 +1,34 @@
+<h3>予約フォーム</h3>
+
+<%= image_tag(@post.room_image.url, :size =>'400x300') %><br>
+<%= @post.room_name %><br>
+<%= @post.room_address %><br>
+<%= @post.room_introduction %><br>
+¥ <%= @post.room_price %> / 日<br>
+
+<%= form_for @reservation, method: :get, url: new_post_reservation_path(@post) do |f| %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <div class="col-md-6">
+    <label>開始日</label>
+    <%= f.date_field :start_date, :class => 'datepicker' %>
+  </div>
+
+  <div class="col-md-6">
+    <label>終了日</label>
+    <%= f.date_field :end_date, :class => 'datepicker' %>
+  </div>
+
+  <div class="col-md-6">
+    <label>人数</label>
+    <%= f.number_field :number_of_reservations, min: 0, :class => 'datepicker' %>
+  </div>
+
+  <% if user_signed_in? %>
+    <%= f.submit "予約する", class: "btn btn-danger btn-wide" %>
+  <% end %>
+
+<% end %>
+
+<% unless user_signed_in? %>
+  <%= button_to "ログイン", new_user_session_path, class: 'login-button' %>
+<% end %>
