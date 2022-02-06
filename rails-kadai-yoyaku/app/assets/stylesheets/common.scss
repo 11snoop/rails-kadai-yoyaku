@@ -1,0 +1,235 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+*{
+  margin:0;
+  padding:0;
+  }
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: black;
+}
+
+header a {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+footer {
+  background-color: black;
+  color: #F8F8FF;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__bar.row h1 {
+  font-family: cursive;
+  float: left;
+  padding-left: 30px;
+}
+
+.header__search {
+  display: flex;
+  margin-left: 200px;
+  padding-top: 30px;
+}
+
+.login {
+  float: right;
+  padding: 0px 30px 10px 0px;
+  display: flex;
+}
+
+.login-button {
+  margin-right: 15px;
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  background-color: #6699FF;
+}
+
+.new-button {
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.contents {
+  text-align: center;
+  background-color: #F8F8FF;
+  margin: 0px 300px;
+  height: auto;
+}
+
+.mandatory {
+  margin-right: 10px;
+  background-color: #FF0000;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+input[type="text"] {
+  width: 300px;
+  height: 30px;
+}
+
+input[type="email"] {
+  width: 300px;
+  height: 30px;
+}
+
+input[type="password"] {
+  width: 300px;
+  height: 30px;
+}
+
+.field {
+  margin-top: 10px;
+}
+
+.actions-button {
+  padding: 8px 150px;
+  background-color: #0066CC;
+  color: white;
+  font-size: 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.new-link {
+  font-size: 18px;
+}
+
+.actions-new {
+  padding: 8px 90px;
+  background-color: #0066CC;
+  color: white;
+  font-size: 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin: 20px 0px 10px 0px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.top-main {
+  background-image: url("/assets/img_cover_top.jpg");
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+}
+
+.dropdown {
+  position: fixed;
+  float: right;
+  margin-right: 100px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.dropdown {
+  position: static
+}
+
+.dropdown-menu {
+  margin-top: 10px;
+}
+
+.new-room {
+  display: flex;
+  background-color: #EEEEEE;
+}
+
+.new-room-information {
+  background-color: white;
+  width: 200px;
+  text-align: center;
+  padding-top: 30px;
+  font-size: large;
+}
+
+.new-room-register {
+  margin: auto;
+  background-color: white;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 800px;
+  padding-left: 20px;
+}
+
+.new-room-label {
+  font-size: large;
+  margin-right: 10px;
+}
+
+table th {
+  padding: 50px 30px;
+  border-top: 1px solid #EEEEEE;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+table td {
+  padding: 50px 0px;
+  border-top: 1px solid #EEEEEE;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.new-room-register input[type="text"] {
+  width: 550px;
+  height: 40px;
+}
+
+.new-room-register textarea {
+  width: 550px;
+  height: 150px;
+}
+
+.new-room-register input[type="number"] {
+  width: 550px;
+  height: 40px;
+}
+
+.new-room-actions-button {
+  padding: 8px 50px;
+  background-color: #0066CC;
+  color: white;
+  font-size: 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  display:block;
+  margin: 10px auto;
+}
+
+.notice {
+  background-color: #ccf;
+  padding: 5px;
+}
+
+.room-list {
+  margin-left: 30px;
+}
+
+.room-list th {
+  padding: 20px 30px;
+}

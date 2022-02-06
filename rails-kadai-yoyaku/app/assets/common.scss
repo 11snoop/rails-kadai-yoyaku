@@ -1,0 +1,140 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+*{
+  margin:0;
+  padding:0;
+  }
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: black;
+  overflow: auto;
+}
+
+header a {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+footer {
+  background-color: black;
+  color: #F8F8FF;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__bar.row h1 {
+  font-family: cursive;
+  float: left;
+  padding-left: 30px;
+}
+
+.login {
+  float: right;
+  padding: 10px 30px 0px 0px;
+  display: flex;
+}
+
+.login-button {
+  margin-right: 15px;
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  background-color: #6699FF;
+}
+
+.new-button {
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.contents {
+  text-align: center;
+  background-color: #F8F8FF;
+  margin: 0px 300px;
+  height: auto;
+}
+
+.mandatory {
+  margin-right: 10px;
+  background-color: #FF0000;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+input[type="text"] {
+  width: 300px;
+  height: 30px;
+}
+
+input[type="email"] {
+  width: 300px;
+  height: 30px;
+}
+
+input[type="password"] {
+  width: 300px;
+  height: 30px;
+}
+
+.field {
+  margin-top: 10px;
+}
+
+.actions-button {
+  padding: 8px 150px;
+  background-color: #0066CC;
+  color: white;
+  font-size: 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.new-link {
+  font-size: 18px;
+}
+
+.actions-new {
+  padding: 8px 90px;
+  background-color: #0066CC;
+  color: white;
+  font-size: 18px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin: 20px 0px 10px 0px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.top-main {
+  background-image: url("/assets/img_cover_top.jpg");
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+}
+
+.dropdown {
+  float: right;
+}

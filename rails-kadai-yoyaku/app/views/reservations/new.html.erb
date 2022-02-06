@@ -1,0 +1,45 @@
+<h1>予約フォーム</h1>
+¥ <%= @post.room_price %> / 日
+<dl>
+	<dt>開始日</dt>
+	<dd><%= @reservation.start_date.to_s(:ja) %></dd>
+	<dt>終了日</dt>
+	<dd><%= @reservation.end_date.to_s(:ja) %></dd>
+  <dt>使用日数</dt>
+	<dd>
+    <% past_seconds = @reservation.end_date-@reservation.start_date %>
+    <%= past_days = (past_seconds / 1.days).floor %>日
+  </dd>
+	<dt>人数</dt>
+	<dd><%= @reservation.number_of_reservations %>人</dd>
+  <dt>合計金額</dt>
+	<dd><%= @post.room_price*past_days*@reservation.number_of_reservations %>円</dd>
+</dl>
+
+<h6>上記内容でよろしければ「予約を確定」を押してください</h6>
+
+<%= form_for [@post, @post.reservations.new], method: :post, url: reservations_complete_path(@post.id) do |f| %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+
+  <%= f.hidden_field :start_date, :value => @reservation.start_date %>
+
+  <%= f.hidden_field :end_date, :value =>  @reservation.end_date %>
+
+  <%= f.hidden_field :number_of_reservations, :value =>  @reservation.number_of_reservations %>
+
+  <%= f.submit "予約を確定", class: "btn btn-danger btn-wide" %>
+
+<% end %>
+
+<%= form_for [@post, @post.reservations.new], method: :post, url: reservations_back_path(@post.id) do |f| %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+
+  <%= f.hidden_field :start_date, :value => @reservation.start_date %>
+
+  <%= f.hidden_field :end_date, :value =>  @reservation.end_date %>
+
+  <%= f.hidden_field :number_of_reservations, :value =>  @reservation.number_of_reservations %>
+
+  <%= f.submit "ルーム詳細に戻る", class: "btn btn-danger btn-wide" %>
+
+<% end %>
